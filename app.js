@@ -2,7 +2,7 @@
 /* JavaScript file for Portfolio-Generator project. */
 
 const inquirer = require( 'inquirer' );   /* import the 'inquirer' module, loaded by 'npm' */
-const fs = require( 'fs' );               /* import the file system module */
+const {writeFile, copyFile} = require( './utils/generate-site.js' );   /* import the functions from 'generate-site.js' */
 
 const generatePage = require( './src/page-template' );
 
@@ -188,15 +188,25 @@ const promptProject = portfolioData => {
     });
   };
 
-promptUser()
+  promptUser()
   .then(promptProject)
-  .then( portfolioData => {
-     //const pageHTML = generatePage(portfolioData);
-     const pageHTML = generatePage(mockData);
+  .then(portfolioData => {
+    return generatePage(portfolioData);
+  })
 
-    fs.writeFile('./index.html', pageHTML, err => {
-      if (err) throw new Error(err);
+  .then(pageHTML => {
+    return writeFile(pageHTML);
+  })
 
-      console.log('Page created! Check out index.html in this directory to see it!');
-    });
+  .then(writeFileResponse => {
+    console.log(writeFileResponse);
+    return copyFile();
+  })
+
+  .then(copyFileResponse => {
+    console.log(copyFileResponse);
+  })
+
+  .catch(err => {
+    console.log(err);
   });
