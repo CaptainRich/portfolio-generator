@@ -38,7 +38,7 @@ const copyFile = () => {
             }
       
             // If everything is ok, resolve the Promise and send the data to the `.then()` method
-            resolve({
+            resolve({ 
               ok: true,
               message: 'File created!'
             });
@@ -52,5 +52,5 @@ const copyFile = () => {
 
 module.exports = {
     writeFile: writeFile,
-    copyFile: fs.copyFileSync
+    copyFile: copyFile
 };
