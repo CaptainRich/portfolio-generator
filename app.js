@@ -1,5 +1,6 @@
 
 /* JavaScript file for Portfolio-Generator project. */
+/* R. Ay, September 2020 */
 
 const inquirer = require( 'inquirer' );   /* import the 'inquirer' module, loaded by 'npm' */
 const {writeFile, copyFile} = require( './utils/generate-site.js' );   /* import the functions from 'generate-site.js' */
