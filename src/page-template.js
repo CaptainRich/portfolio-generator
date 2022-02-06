@@ -7,7 +7,7 @@ const generateAbout = aboutText => {
     return '';
   }
 
-  // If there is an "About" section, create the HTML to display that information
+  // If there is an "About" section defined, create the HTML to display that information
   return `
     <section class="my-3" id="about">
        <h2 class="text-dark bg-primary p-2 display-inline-block">About Me</h2>
@@ -26,7 +26,7 @@ const generateProjects = projectsArr => {
       <div class="flex-row justify-space-between">
 
       ${projectsArr
-        .filter(({ feature }) => feature)                    // First map the 'featured' projects
+        .filter(({ feature }) => feature)                    // First map the 'featured' projects, when 'feature' is true
         .map(({ name, description, languages, link }) => {
           return `
           <div class="col-12 mb-2 bg-dark text-light p-3">
@@ -39,8 +39,9 @@ const generateProjects = projectsArr => {
             <a href="${link}" class="btn"><i class="fab fa-github mr-2"></i>View Project on GitHub</a>
           </div>
         `;
-        })
-        .join('')}
+        })  // The 'join' below creates a combined string of the HTML before returning.
+        .join('')}    
+        
 
       ${projectsArr
         .filter(({ feature }) => !feature)                  // Finally map the 'non-featured' projects
@@ -67,7 +68,8 @@ const generateProjects = projectsArr => {
 
 module.exports = templateData => {
 
-  // Destructure 'projects' and 'about' daa from templateData  based on their property key names
+  // Destructure 'projects' and 'about' data from templateData, based on their property key names.
+  // The rest of the data goes to 'header', which will be 'name' and 'gitHub" name.
   const { projects, about, ...header } = templateData;
 
   return `

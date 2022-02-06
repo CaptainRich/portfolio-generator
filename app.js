@@ -7,7 +7,8 @@
 const inquirer = require( 'inquirer' );                                /* import the 'inquirer' module, loaded by 'npm' */
 
 const {writeFile, copyFile} = require( './utils/generate-site.js' );   /* import the functions from 'generate-site.js' */
-const generatePage = require( './src/page-template.js' );              /* import the HTML template */
+/* Import the HTML template and assign to 'generatePage' */
+const generatePage = require( './src/page-template.js' );              
 
 
 /* ///////////////////////// Mock Data ////////////////////////////////////////////// */
@@ -43,6 +44,15 @@ const mockData =
           'Duis consectetur nunc nunc. Morbi finibus non sapien nec pharetra. Fusce nec dignissim orci, ac interdum ipsum. Morbi mattis justo sed commodo pellentesque. Nulla eget fringilla nulla. Integer gravida magna mi, id efficitur metus tempus et. Nam fringilla elit dapibus pellentesque cursus.',
         languages: ['JavaScript', 'jQuery', 'CSS', 'HTML', 'Bootstrap'],
         link: 'https://github.com/lernantino/taskmaster-pro',
+        feature: false,
+        confirmAddProject: true
+      },
+      {
+        name: 'Weather Report',
+        description:
+          'Duis consectetur nunc nunc. Morbi finibus non sapien nec pharetra. Fusce nec dignissim orci, ac interdum ipsum. Morbi mattis justo sed commodo pellentesque.',
+        languages: ['JavaScript', 'CSS', '3rd Party APIs'],
+        link: 'https://github.com/lernantino/robot-gladiators',
         feature: false,
         confirmAddProject: true
       },
@@ -194,25 +204,30 @@ const promptProject = portfolioData => {
 
   ///////////////////////////////////////////////////////////////////////////////////////
   
-  promptUser()
-  .then(promptProject)
-  .then(portfolioData => {
-    return generatePage(portfolioData);
-  })
+// promptUser()
+//   .then(promptProject)
+//   .then(portfolioData => {
+//     return generatePage(portfolioData);
+//   })
 
-  .then(pageHTML => {
-    return writeFile(pageHTML);
-  })
+//   .then(pageHTML => {
+//     return writeFile(pageHTML);
+//   })
 
-  .then(writeFileResponse => {
-    console.log(writeFileResponse);
-    return copyFile();
-  })
+//   .then(writeFileResponse => {
+//     console.log(writeFileResponse);
+//     return copyFile();
+//   })
 
-  .then(copyFileResponse => {
-    console.log(copyFileResponse);
-  })
+//   .then(copyFileResponse => {
+//     console.log(copyFileResponse);
+//   })
 
-  .catch(err => {
-    console.log(err);
-  });
+//   .catch(err => {
+//     console.log(err);
+//   });
+
+// For testing/mocking.  Comment out the above 'promptUser' and its promises, and 
+// use the code below instead.
+const pageHTML = generatePage(mockData);
+writeFile(pageHTML);
