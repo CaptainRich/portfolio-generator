@@ -1,5 +1,5 @@
 
-
+// Allow the usage of the fs module's functions.
 const fs = require( 'fs' );
 
 

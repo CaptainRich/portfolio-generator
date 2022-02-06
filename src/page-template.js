@@ -67,7 +67,7 @@ const generateProjects = projectsArr => {
 
 module.exports = templateData => {
 
-  // Destructure projects and about daa from templateData  based on their property key names
+  // Destructure 'projects' and 'about' daa from templateData  based on their property key names
   const { projects, about, ...header } = templateData;
 
   return `
