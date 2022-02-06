@@ -4,10 +4,10 @@
 
 
 // Import the required modules and external file (functions).
-const inquirer = require( 'inquirer' );   /* import the 'inquirer' module, loaded by 'npm' */
-const {writeFile, copyFile} = require( './utils/generate-site.js' );   /* import the functions from 'generate-site.js' */
+const inquirer = require( 'inquirer' );                                /* import the 'inquirer' module, loaded by 'npm' */
 
-const generatePage = require( './src/page-template.js' );
+const {writeFile, copyFile} = require( './utils/generate-site.js' );   /* import the functions from 'generate-site.js' */
+const generatePage = require( './src/page-template.js' );              /* import the HTML template */
 
 
 /* ///////////////////////// Mock Data ////////////////////////////////////////////// */
@@ -63,6 +63,7 @@ const mockData =
 
 /* ////////////////////////////////////////////////////// 
    Question Section                                    */
+/* See the NPM documentation on 'inquirer' for details on the code below. */
 
 const promptUser = () => {
     return inquirer.prompt([
@@ -74,7 +75,7 @@ const promptUser = () => {
                 if( nameInput ) {
                     return true;
                 } else {
-                    console.log( "Please enter your name!" );
+                    console.log( "Please enter your name, it is required!" );
                     return false;
                 }
             }
@@ -87,7 +88,7 @@ const promptUser = () => {
                 if( nameInput ) {
                     return true;
                 } else {
-                    console.log( "Please enter your GitHub Username !" );
+                    console.log( "Please enter your GitHub Username, it is required !" );
                     return false;
                 }
             }
@@ -100,7 +101,7 @@ const promptUser = () => {
           },
         {
             type: 'input',
-            name: 'about',
+            name: 'about',     /* This prompt only happens if "confirmAbout" is 'true'. */
             message: 'Provide some information about yourself:',
             when: ( { confirmAbout } ) => confirmAbout
         }
@@ -114,7 +115,7 @@ const promptProject = portfolioData => {
   =================
   `);
 
-    // If there isn't a 'projects' array property, create it.
+    // If there isn't a 'projects' array property, create it as an empty array.
     if( !portfolioData.projects ) {
         portfolioData.projects = [];
     }
@@ -129,7 +130,7 @@ const promptProject = portfolioData => {
                 if( nameInput ) {
                     return true;
                 } else {
-                    console.log( "Please enter your project name!" );
+                    console.log( "Please enter your project name, it is required!" );
                     return false;
                 }
             }
@@ -142,7 +143,7 @@ const promptProject = portfolioData => {
                 if( nameInput ) {
                     return true;
                 } else {
-                    console.log( "Please enter your a project description." );
+                    console.log( "Please enter your a project description, it is required." );
                     return false;
                 }
             }
@@ -161,7 +162,7 @@ const promptProject = portfolioData => {
                 if( nameInput ) {
                     return true;
                 } else {
-                    console.log( "Please enter your project GitHub link!" );
+                    console.log( "Please enter your project GitHub link, it is required!" );
                     return false;
                 }
             }
@@ -191,6 +192,8 @@ const promptProject = portfolioData => {
     });
   };
 
+  ///////////////////////////////////////////////////////////////////////////////////////
+  
   promptUser()
   .then(promptProject)
   .then(portfolioData => {
