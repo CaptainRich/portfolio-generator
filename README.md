@@ -30,4 +30,4 @@ The link to the GitHub repository is: https://CaptainRich.github.io/portfolio-ge
 
 ## Application Screen Shots
 
-![Screenshot](screeh-shot.jpg) Image of the application with 'mocked' data.  
+![Screenshot](screen-shot.jpg) Image of the application with 'mocked' data.  
