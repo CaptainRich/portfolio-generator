@@ -4,7 +4,7 @@ const fs = require( 'fs' );
 
 
 //////////////////////////////////////////////////////////////
-// The function to write a file, by creating a 'promise'
+// The function to write a file, by creating a 'promise'.  Note the '\dist' directory must exist!
 const writeFile = fileContent => {
     return new Promise( (resolve, reject) => {
         fs.writeFile('./dist/index.html', fileContent, err => {
@@ -18,7 +18,7 @@ const writeFile = fileContent => {
             // If everything went well, resolve the Promise and send the successful data to the `.then()` method
             resolve({
               ok: true,
-              message: 'File created!'
+              message: 'Index.html file created!'
             });
           });
     } );
@@ -40,7 +40,7 @@ const copyFile = () => {
             // If everything is ok, resolve the Promise and send the data to the `.then()` method
             resolve({ 
               ok: true,
-              message: 'File created!'
+              message: 'CSS file copied to /dist director!'
             });
           });
     } );
@@ -48,7 +48,7 @@ const copyFile = () => {
 
 
 //////////////////////////////////////////////////////////////////////////////////
-// Export the two functions above
+// Export the two functions above.  This is actually an object that can be destructured on import (require).
 
 module.exports = {
     writeFile: writeFile,

@@ -204,30 +204,31 @@ const promptProject = portfolioData => {
 
   ///////////////////////////////////////////////////////////////////////////////////////
   
-// promptUser()
-//   .then(promptProject)
-//   .then(portfolioData => {
-//     return generatePage(portfolioData);
-//   })
+promptUser()
+  .then(promptProject)
+  .then(portfolioData => {
+    return generatePage(portfolioData);
+  })
 
-//   .then(pageHTML => {
-//     return writeFile(pageHTML);
-//   })
+  .then(pageHTML => {
+    return writeFile(pageHTML);
+  })
 
-//   .then(writeFileResponse => {
-//     console.log(writeFileResponse);
-//     return copyFile();
-//   })
+  .then(writeFileResponse => {
+    console.log(writeFileResponse);
+    return copyFile();
+  })
 
-//   .then(copyFileResponse => {
-//     console.log(copyFileResponse);
-//   })
+  .then(copyFileResponse => {
+    console.log(copyFileResponse);
+  })
 
-//   .catch(err => {
-//     console.log(err);
-//   });
+  .catch(err => {
+    console.log(err);
+  });
 
 // For testing/mocking.  Comment out the above 'promptUser' and its promises, and 
 // use the code below instead.
-const pageHTML = generatePage(mockData);
-writeFile(pageHTML);
+// const pageHTML = generatePage(mockData);
+// writeFile(pageHTML);
+// copyFile();
