@@ -25,9 +25,9 @@ This application allows the user to create a portfolio of projects.  The Javascr
 ## Deployment Link
 Because this application runs from a machine (command line) and not a browser, it cannot be deployed to GitHub pages.  To run this application, clone it to your local machine and (assuming you have 'node.js' installed) run 'node app.js'.
 The link to the GitHub repository is: https://CaptainRich.github.io/portfolio-generator  
-[GitHub](https://CaptainRich.github.io/portfolio-generator) 
+ 
 
 
 ## Application Screen Shots
 
-![Screenshot](.screeh-shot.jpg) Image of the application with 'mocked' data.  
+![Screenshot](screeh-shot.jpg) Image of the application with 'mocked' data.  
